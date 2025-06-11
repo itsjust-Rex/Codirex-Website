@@ -88,26 +88,11 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
-        }
-
-        header {
-            background: #0a0a0a;
-            color: #fff;
-            padding: 1rem 0;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            border-bottom: 1px solid #00ccff;
-        }
-
-        header h1 {
-            font-size: 2rem;
-            text-align: center;
-            color: #00ccff;
-            text-shadow: 
-                0 0 3px #00ccff,
-                0 0 8px #00ccff;
+            background: rgba(255, 255, 255, 0.1); /* Semi-transparent white */
+            backdrop-filter: blur(10px); /* Blur effect */
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.2); /* Subtle border */
+            box-shadow: 0 0 20px rgba(0, 204, 255, 0.2); /* Neon cyan glow */
         }
 
         section {
@@ -115,14 +100,14 @@
         }
 
         #home {
-            padding: 100px 0;
+            padding: 60px 0; /* Reduced top padding (no header) */
             text-align: center;
             position: relative;
         }
 
         #home .banner-image {
             position: absolute;
-            top: 20px;
+            top: 20px; /* Top-left of section */
             left: 20px;
             width: 150px;
             height: 150px;
@@ -136,7 +121,7 @@
         #home .container {
             position: relative;
             z-index: 1;
-            margin-top: 200px; /* Space for banner image */
+            margin-top: 100px; /* Space for banner image */
         }
 
         #home h2 {
@@ -216,16 +201,19 @@
             border-top: 1px solid #00ccff;
         }
 
+        footer .container {
+            background: none; /* No blur for footer */
+            backdrop-filter: none;
+            border: none;
+            box-shadow: none;
+        }
+
         footer p {
             color: #00ccff;
             text-shadow: 0 0 3px #00ccff;
         }
 
         @media (max-width: 768px) {
-            header h1 {
-                font-size: 1.5rem;
-            }
-
             #home h2 {
                 font-size: 2rem;
             }
@@ -233,12 +221,12 @@
             #home .banner-image {
                 width: 100px;
                 height: 100px;
-                top: 10px;
+                top: 10px; /* Top-left of section */
                 left: 10px;
             }
 
             #home .container {
-                margin-top: 120px;
+                margin-top: 60px; /* Adjusted for smaller image */
             }
 
             .container {
@@ -255,12 +243,6 @@
 
     <!-- Animated Tech Background -->
     <canvas id="background-canvas"></canvas>
-
-    <header>
-        <div class="container">
-            <h1 class="neon-text">Codirex</h1>
-        </div>
-    </header>
 
     <section id="home">
         <div class="banner-image"></div>
