@@ -15,7 +15,27 @@
 
         body {
             line-height: 1.6;
-            color: #333;
+            color: #fff;
+            background: #1a1a1a; /* Dark theme background */
+        }
+
+        /* Neon Text Styles */
+        .neon-text {
+            color: #00ffcc;
+            text-shadow: 
+                0 0 5px #00ffcc,
+                0 0 10px #00ffcc,
+                0 0 20px #00ffcc,
+                0 0 40px #ff00ff;
+        }
+
+        .neon-text-secondary {
+            color: #ff00ff;
+            text-shadow: 
+                0 0 5px #ff00ff,
+                0 0 10px #ff00ff,
+                0 0 20px #ff00ff,
+                0 0 40px #00ffcc;
         }
 
         /* Loading Screen Styles */
@@ -40,8 +60,8 @@
         }
 
         .loader {
-            border: 8px solid #f4f4f4;
-            border-top: 8px solid #00aaff;
+            border: 8px solid #333;
+            border-top: 8px solid #00ffcc; /* Neon cyan for loader */
             border-radius: 50%;
             width: 60px;
             height: 60px;
@@ -61,7 +81,7 @@
         }
 
         header {
-            background: #1a1a1a;
+            background: #0d0d0d; /* Darker header */
             color: #fff;
             padding: 1rem 0;
             position: fixed;
@@ -71,40 +91,32 @@
         }
 
         header h1 {
-            display: inline-block;
             font-size: 2rem;
+            text-align: center;
+            color: #00ffcc;
+            text-shadow: 
+                0 0 5px #00ffcc,
+                0 0 10px #00ffcc;
         }
 
         nav ul {
-            float: right;
-            list-style: none;
-        }
-
-        nav ul li {
-            display: inline-block;
-            margin-left: 20px;
-        }
-
-        nav ul li a {
-            color: #fff;
-            text-decoration: none;
-            font-size: 1.1rem;
-        }
-
-        nav ul li a:hover {
-            color: #00aaff;
+            display: none; /* Hide navigation buttons */
         }
 
         section {
-            padding: 80px 0;
+            padding: 60px 0;
         }
 
         #home {
-            background: url('https://files.catbox.moe/glc8i5.jpg') no-repeat center center/cover;
+            background: url('https://files.catbox.moe/glc8i5.jpg') no-repeat center center/contain;
+            background-size: 100% auto; /* Full image without cropping */
             color: #fff;
             text-align: center;
-            padding: 150px 0;
-            margin-top: 60px;
+            padding: 80px 0;
+            min-height: 100vh; /* Ensure full image height is visible */
+            display: flex;
+            align-items: center;
+            justify-content: center;
             position: relative;
         }
 
@@ -115,7 +127,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.5); /* Dark overlay for text readability */
+            background: rgba(0, 0, 0, 0.4); /* Light overlay for text readability */
             z-index: 1;
         }
 
@@ -137,20 +149,23 @@
         .btn {
             display: inline-block;
             padding: 10px 20px;
-            background: #fff;
-            color: #0077cc;
+            background: transparent;
+            border: 2px solid #00ffcc;
+            color: #00ffcc;
             text-decoration: none;
             border-radius: 5px;
             font-weight: bold;
+            text-shadow: 0 0 5px #00ffcc;
         }
 
         .btn:hover {
-            background: #0077cc;
-            color: #fff;
+            background: #00ffcc;
+            color: #1a1a1a;
+            text-shadow: none;
         }
 
         #about, #contact {
-            background: #f4f4f4;
+            background: #1a1a1a; /* Dark theme */
             text-align: center;
         }
 
@@ -175,40 +190,35 @@
 
         .contact-info i {
             margin-right: 10px;
-            color: #0077cc;
+            color: #ff00ff; /* Neon pink icons */
         }
 
         .contact-info a {
-            color: #333;
+            color: #00ffcc;
             text-decoration: none;
+            text-shadow: 0 0 5px #00ffcc;
         }
 
         .contact-info a:hover {
-            color: #00aaff;
+            color: #ff00ff;
+            text-shadow: 0 0 5px #ff00ff;
         }
 
         footer {
-            background: #1a1a1a;
+            background: #0d0d0d;
             color: #fff;
             text-align: center;
             padding: 1rem 0;
         }
 
+        footer p {
+            color: #00ffcc;
+            text-shadow: 0 0 5px #00ffcc;
+        }
+
         @media (max-width: 768px) {
             header h1 {
-                display: block;
-                text-align: center;
-            }
-
-            nav ul {
-                float: none;
-                text-align: center;
-                margin-top: 10px;
-            }
-
-            nav ul li {
-                display: block;
-                margin: 10px 0;
+                font-size: 1.5rem;
             }
 
             #home h2 {
@@ -216,7 +226,8 @@
             }
 
             #home {
-                padding: 100px 0;
+                padding: 60px 0;
+                background-size: contain; /* Ensure full image on mobile */
             }
 
             .container {
@@ -233,12 +244,10 @@
 
     <header>
         <div class="container">
-            <h1>Codirex</h1>
+            <h1 class="neon-text">Codirex</h1>
             <nav>
                 <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    <!-- Navigation buttons removed -->
                 </ul>
             </nav>
         </div>
@@ -246,25 +255,25 @@
 
     <section id="home">
         <div class="container">
-            <h2>Welcome to Codirex</h2>
-            <p>Empowering creators, developers, and digital thinkers with innovative tools and cutting-edge resources.</p>
+            <h2 class="neon-text">Welcome to Codirex</h2>
+            <p class="neon-text-secondary">Empowering creators, developers, and digital thinkers with innovative tools and cutting-edge resources.</p>
             <a href="https://official-just-rex.vercel.app/" class="btn" target="_blank">Learn More</a>
         </div>
     </section>
 
     <section id="about">
         <div class="container">
-            <h2>About Codirex</h2>
-            <p>Codirex is a next-generation tech platform built to empower creators, developers, and digital thinkers with innovative tools, smart solutions, and cutting-edge resources. At the intersection of code and creativity, Codirex stands as a symbol of bold innovation, precision, and the relentless pursuit of progress.</p>
-            <p>Whether you're building a product, learning a new skill, or shaping the future of technology—Codirex is your trusted companion on the journey.</p>
-            <p><strong>Owner:</strong> JUST REX</p>
+            <h2 class="neon-text">About Codirex</h2>
+            <p class="neon-text-secondary">Codirex is a next-generation tech platform built to empower creators, developers, and digital thinkers with innovative tools, smart solutions, and cutting-edge resources. At the intersection of code and creativity, Codirex stands as a symbol of bold innovation, precision, and the relentless pursuit of progress.</p>
+            <p class="neon-text-secondary">Whether you're building a product, learning a new skill, or shaping the future of technology—Codirex is your trusted companion on the journey.</p>
+            <p class="neon-text-secondary"><strong>Owner:</strong> JUST REX</p>
         </div>
     </section>
 
     <section id="contact">
         <div class="container">
-            <h2>Contact Us</h2>
-            <p>Reach out to us for collaborations, inquiries, or to join the Codirex community!</p>
+            <h2 class="neon-text">Contact Us</h2>
+            <p class="neon-text-secondary">Reach out to us for collaborations, inquiries, or to join the Codirex community!</p>
             <ul class="contact-info">
                 <li><i class="fas fa-envelope"></i> Email: <a href="mailto:sr3xtech@gmail.com">sr3xtech@gmail.com</a></li>
                 <li><i class="fab fa-github"></i> GitHub: <a href="https://github.com/itsjust-Rex" target="_blank">itsjust-Rex</a></li>
