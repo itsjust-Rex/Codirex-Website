@@ -300,9 +300,12 @@
 
     <script>
         // Hide loading screen after 2 seconds
-        window.add lunettes = window.addEventListener('load', () => {
+        window.addEventListener('load', () => {
             setTimeout(() => {
-                document.getElementById('loading-screen').classList.add('hidden');
+                const loadingScreen = document.getElementById('loading-screen');
+                if (loadingScreen) {
+                    loadingScreen.classList.add('hidden');
+                }
             }, 2000);
 
             // Particle Animation
@@ -342,6 +345,12 @@
             }
 
             animate();
+
+            // Resize canvas on window resize
+            window.addEventListener('resize', () => {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+            });
         });
     </script>
 </body>
