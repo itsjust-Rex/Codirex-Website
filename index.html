@@ -17,7 +17,7 @@
         body {
             line-height: 1.6;
             color: #fff;
-            background: #0a0a0a; /* Dark professional background */
+            background: #0a0a0a;
             position: relative;
             overflow-x: hidden;
         }
@@ -30,7 +30,7 @@
             width: 100%;
             height: 100%;
             z-index: -1;
-            opacity: 0.3; /* Subtle animation */
+            opacity: 0.3;
         }
 
         /* Loading Screen Styles */
@@ -56,7 +56,7 @@
 
         .loader {
             border: 8px solid #333;
-            border-top: 8px solid #00ccff; /* Professional cyan */
+            border-top: 8px solid #00ccff;
             border-radius: 50%;
             width: 60px;
             height: 60px;
@@ -68,7 +68,7 @@
             100% { transform: rotate(360deg); }
         }
 
-        /* Neon Text Styles (Refined) */
+        /* Neon Text Styles */
         .neon-text {
             color: #00ccff;
             text-shadow: 
@@ -88,11 +88,11 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
-            background: rgba(255, 255, 255, 0.1); /* Semi-transparent white */
-            backdrop-filter: blur(10px); /* Blur effect */
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
             border-radius: 10px;
-            border: 1px solid rgba(255, 255, 255, 0.2); /* Subtle border */
-            box-shadow: 0 0 20px rgba(0, 204, 255, 0.2); /* Neon cyan glow */
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 0 20px rgba(0, 204, 255, 0.2);
         }
 
         section {
@@ -100,14 +100,14 @@
         }
 
         #home {
-            padding: 60px 0; /* Reduced top padding (no header) */
+            padding: 60px 0;
             text-align: center;
             position: relative;
         }
 
         #home .banner-image {
             position: absolute;
-            top: 20px; /* Top-left of section */
+            top: 20px;
             left: 20px;
             width: 150px;
             height: 150px;
@@ -116,12 +116,13 @@
             border: 3px solid #00ccff;
             box-shadow: 0 0 10px #00ccff;
             z-index: 2;
+            cursor: pointer;
         }
 
         #home .container {
             position: relative;
             z-index: 1;
-            margin-top: 100px; /* Space for banner image */
+            margin-top: 100px;
         }
 
         #home h2 {
@@ -153,6 +154,80 @@
             text-shadow: none;
         }
 
+        /* Username and Password Box */
+        .login-box {
+            margin-top: 20px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            border: 1px solid #00ccff;
+            text-align: left;
+        }
+
+        .login-box label {
+            display: block;
+            margin-bottom: 5px;
+            color: #00ccff;
+            font-weight: 700;
+        }
+
+        .login-box input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid #00ccff;
+            border-radius: 5px;
+            color: #fff;
+            font-size: 1rem;
+        }
+
+        .login-box p {
+            font-size: 1rem;
+            color: #ff00cc;
+            text-shadow: 0 0 3px #ff00cc;
+        }
+
+        /* Image Pop-up */
+        .popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 2001;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .popup.active {
+            display: flex;
+        }
+
+        .popup img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 10px;
+            border: 3px solid #00ccff;
+            box-shadow: 0 0 20px #00ccff;
+        }
+
+        .popup .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 2rem;
+            color: #00ccff;
+            cursor: pointer;
+            text-shadow: 0 0 5px #00ccff;
+        }
+
+        .blur {
+            filter: blur(5px);
+        }
+
         #about, #contact {
             background: #0a0a0a;
             text-align: center;
@@ -179,7 +254,7 @@
 
         .contact-info i {
             margin-right: 10px;
-            color: #ff00cc; /* Magenta icons */
+            color: #ff00cc;
         }
 
         .contact-info a {
@@ -202,7 +277,7 @@
         }
 
         footer .container {
-            background: none; /* No blur for footer */
+            background: none;
             backdrop-filter: none;
             border: none;
             box-shadow: none;
@@ -221,16 +296,22 @@
             #home .banner-image {
                 width: 100px;
                 height: 100px;
-                top: 10px; /* Top-left of section */
+                top: 10px;
                 left: 10px;
             }
 
             #home .container {
-                margin-top: 60px; /* Adjusted for smaller image */
+                margin-top: 60px;
             }
 
             .container {
                 width: 90%;
+            }
+
+            .popup .close-btn {
+                top: 10px;
+                right: 10px;
+                font-size: 1.5rem;
             }
         }
     </style>
@@ -244,12 +325,25 @@
     <!-- Animated Tech Background -->
     <canvas id="background-canvas"></canvas>
 
+    <!-- Image Pop-up -->
+    <div id="image-popup" class="popup">
+        <span class="close-btn">&times;</span>
+        <img src="https://files.catbox.moe/glc8i5.jpg" alt="Banner Image">
+    </div>
+
     <section id="home">
-        <div class="banner-image"></div>
+        <div class="banner-image" id="banner-image"></div>
         <div class="container">
             <h2 class="neon-text">Welcome to Codirex</h2>
             <p class="neon-text-secondary">Empowering creators, developers, and digital thinkers with innovative tools and cutting-edge resources.</p>
             <a href="https://official-just-rex.vercel.app/" class="btn" target="_blank">Learn More</a>
+            <div class="login-box">
+                <label for="username">Username</label>
+                <input type="text" id="username" value="JUST_REX" readonly>
+                <label for="password">Password</label>
+                <input type="text" id="password" value="REX011-LEGEND" readonly>
+                <p>Copy the username and password and tap on learn more to login on the main page of our website</p>
+            </div>
         </div>
     </section>
 
@@ -332,6 +426,29 @@
             window.addEventListener('resize', () => {
                 canvas.width = window.innerWidth;
                 canvas.height = window.innerHeight;
+            });
+
+            // Image Pop-up Functionality
+            const bannerImage = document.getElementById('banner-image');
+            const popup = document.getElementById('image-popup');
+            const closeBtn = popup.querySelector('.close-btn');
+            const body = document.body;
+
+            bannerImage.addEventListener('click', () => {
+                popup.classList.add('active');
+                body.classList.add('blur');
+            });
+
+            closeBtn.addEventListener('click', () => {
+                popup.classList.remove('active');
+                body.classList.remove('blur');
+            });
+
+            popup.addEventListener('click', (e) => {
+                if (e.target === popup) {
+                    popup.classList.remove('active');
+                    body.classList.remove('blur');
+                }
             });
         });
     </script>
